@@ -1,0 +1,14 @@
+<h1 class="jumbotron text-cennter">Edit Category</h1>
+
+<div class="row">
+  <%= form_with(model: @category, local: true) do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary"%>
+    </div>
+  <% end %>
+</div>
