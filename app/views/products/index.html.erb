@@ -1,6 +1,9 @@
 <div class="jumbotron text-center">
    <h1 class="">Products</h1>
-   <%= link_to "Create new Product", new_product_path, class: "btn btn-success" %>
+   <% if current_user.admin? %>
+      <%= link_to "Create new Product", new_product_path, class: "btn btn-success" %>
+   <% end %>
+   
 </div>
 
   <div class="row">
