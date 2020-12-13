@@ -1,4 +1,4 @@
-<h1 class="jumbotron">
+<h1 class="jumbotron text-center">
   <%= @product.name.capitalize %> 
 </h1>
 
@@ -8,6 +8,7 @@
     <p><small>GBP</small> <%= @product.price %></p>
   </div>
   <div class="card-footer">
-    <%= link_to 'Back to Product List', products_path %>
+    <%= link_to 'Back to Product List', products_path, class: "btn btn-warning" %>
+    <%= link_to 'Delete Product', product_path(@product),  method: :delete, class: "btn btn-danger" %>
   </div>
 </div>

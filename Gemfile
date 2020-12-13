@@ -26,7 +26,6 @@ gem 'redis', '~> 4.0'
 gem 'gon', '~> 6.4'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'simple_form'
 # USE Devise for User Authentication
 gem 'devise', '~> 4.5'
 #Use Carrier Wave for Image Uplaod

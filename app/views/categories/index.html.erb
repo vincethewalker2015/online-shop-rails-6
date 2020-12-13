@@ -1,0 +1,20 @@
+<h1 class="jumbotron text-center">
+   Categories
+</h1>
+
+<div class="row">
+     <%#= render 'shared/product', collection: @products %>
+     <% @categories.each do |cat| %>
+         <div class="card">
+            <div class="card-body">
+               <div class="card-title">
+                  <p> <%= cat.name %> </p>
+               </div>
+
+               <div class="card-footer">
+                  <%= link_to 'View category', category_path(cat) %>
+               </div>
+            </div>
+         </div>
+     <% end %>
+  </div>
