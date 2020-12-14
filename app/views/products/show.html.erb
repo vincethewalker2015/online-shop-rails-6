@@ -5,7 +5,8 @@
 <div class="card">
   <div class="card-body">
     <p> <%= @product.description %></p>
-    <p><small>GBP</small> <%= @product.price %></p>
+    <p><small>GBP</small> <%= @product.price %> 
+    <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn btn-success btn-sm" %></p>
     <% if @product.categories.any? %>
       <p class="">Categories: <%=  render @product.categories %></p>
     <% end %>
