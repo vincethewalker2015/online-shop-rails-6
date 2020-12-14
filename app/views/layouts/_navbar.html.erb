@@ -6,7 +6,8 @@
 <ul class="navbar-nav">
 <li class="nav-item">
 <% if current_user %>
-  <%= link_to 'View all categories', categories_path, class: "btn btn-primary nav-but" %> 
+  <%= link_to 'View all categories', categories_path, class: "btn btn-primary nav-but" %>
+  <%= link_to 'In Cart (' + "#{current_user.cart_count}" + ')', cart_path , class: "badge badge-dark nav-cart ml-3"%> 
 <% end %>
 </li>
 
@@ -49,7 +50,7 @@
 
 <%# end %>
 <% if current_user %> 
-<li class="nav-user mr-1 mt-2"><%= current_user.name %> <%= "(Admin)" if current_user.admin? %></li>
+<li class="nav-user mr-2 mt-2"><%= current_user.name %> <%= "(Admin)" if current_user.admin? %></li>
 <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "btn btn-danger nav-but" %></li>
 <% else %>
 <li><%= link_to "Log in", user_session_path, class: "btn btn-primary nav-but" %></li>
