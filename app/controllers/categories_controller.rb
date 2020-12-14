@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-
+  before_action :require_admin, only: [:new, :edit, :update, :destroy]
   def index 
     @categories = Category.all
   end
@@ -49,5 +49,12 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
+  end
+
+  def require_admin 
+    if !( current_user.admin?)
+      flash[:alert] = "You cannot perform this action"
+      redirect_to products_path
+    end
   end
 end
