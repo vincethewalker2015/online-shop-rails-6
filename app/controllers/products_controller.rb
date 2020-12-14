@@ -35,12 +35,12 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      @product.product_categories.destroy_all
-      @category_array = params.dig(:product, :category_ids)
-      @category_array.each do |cat|
-        @category = Category.find(cat)
-        @product.categories << @category
-      end
+      # @product.product_categories.destroy_all
+      # @category_array = params.dig(:product, :category_ids)
+      # @category_array.each do |cat|
+      #   @category = Category.find(cat)
+      #   @product.categories << @category
+      # end
       flash[:notice] = "Product updated!"
       redirect_to products_path
     else
@@ -57,7 +57,7 @@ class ProductsController < ApplicationController
   private
 
     def product_params
-      params.require(:product).permit(:name, :description, :price)
+      params.require(:product).permit(:name, :description, :price, category_ids: [])
     end
 
 end
