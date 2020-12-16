@@ -26,13 +26,15 @@
           </td>
         </tr>
       <% end %>
-      <tr class="font-weight-bold">
+      <tr class="font-weight-bold card-footer mt-1">
           <td colspan="3">
             <h5>Total</h5>
           </td>
-          <td>
-          <h5> <%= @cart_total %></h5>
-          </td>
+          <div >
+            <td>
+              <h5><span class="mr-1">£</span><%= @cart_total %></h5>
+            </td>
+          </div>
         </tr>
     </tbody>
   </table>
