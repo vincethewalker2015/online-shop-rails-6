@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     put 'remove/:product_id', to: 'carts#remove', as: :remove_from
     put 'remove_one/:product_id', to: 'carts#removeone', as: :remove_one
   end
+  resources :transactions, only: [:new, :create]
   
   
 end

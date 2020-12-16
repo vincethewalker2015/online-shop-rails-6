@@ -25,7 +25,8 @@
             <%= link_to 'Remove', remove_from_cart_path(product), method: :put, class: "btn btn-danger" %>
           </td>
         </tr>
-        <tr class="font-weight-bold">
+      <% end %>
+      <tr class="font-weight-bold">
           <td colspan="3">
             <h5>Total</h5>
           </td>
@@ -33,8 +34,8 @@
           <h5> <%= @cart_total %></h5>
           </td>
         </tr>
-      <% end %>
     </tbody>
   </table>
   <%= link_to "Checkout", new_transaction_path, class: "btn btn-success" unless current_user.get_cart_products_with_qty.blank? %>
+  <%= link_to "Back to Products", new_products_path, class: "btn btn-warning" %>
 </div>
