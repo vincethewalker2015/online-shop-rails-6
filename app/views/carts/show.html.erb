@@ -37,4 +37,5 @@
     </tbody>
   </table>
   <%= link_to "Checkout", new_transaction_path, class: "btn btn-success" unless current_user.get_cart_products_with_qty.blank? %>
+  <%= link_to "Back to Products", new_products_path, class: "btn btn-warning" %>
 </div>

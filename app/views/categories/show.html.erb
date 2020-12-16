@@ -1,7 +1,8 @@
-<h1 class="jumbotron text-center">
-  Category: <%= @category.name %>
-</h1>
+<h1 class="jumbotron text-center mt-2">
+  <p>Category: <%= @category.name %></p>
+  
+  <%= link_to 'View all Products', products_path, class: "btn btn-primary" %>
 
-<div class="row mx-auto">
-  <%= link_to 'Products', products_path, class: "btn btn-primary" %>
-</div>
+</h1>
+<h3 class="text-center">In this category:</h3>
+<%= render "categories/listing", obj: @category.products%>

@@ -5,16 +5,16 @@
 <div class="card">
   <div class="card-body">
     <p> <%= @product.description %></p>
-    <p><small>GBP</small> <%= @product.price %> 
-    <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn btn-success btn-sm" %></p>
+    <p>£ <%= @product.price %>
+    <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn btn-success btn-sm ml-3" %></p>
     <% if @product.categories.any? %>
       <p class="">Categories: <%=  render @product.categories %></p>
     <% end %>
   </div>
   <div class="card-footer">
-    <%= link_to 'Product List', products_path, class: "btn btn-primary" %>
+    <%= link_to 'Product List', products_path, class: "btn btn-warning" %>
     <% if current_user.admin? %>
-      <%= link_to 'Edit Product', edit_product_path(@product), class: "btn btn-warning" %>
+      <%= link_to 'Edit Product', edit_product_path(@product), class: "btn btn-primary" %>
       <%= link_to 'Delete Product', product_path(@product),  method: :delete, class: "btn btn-danger" %>
     <% end %>
     
