@@ -14,7 +14,11 @@ class CartsController < ApplicationController
 
   def remove
     current_user.remove_from_cart(params[:product_id])
-    redirect_to cart_path
+    if current_user.cart_count < 1
+      redirect_to products_path
+    else
+      redirect_to cart_path
+    end
   end
 
   def removeone
