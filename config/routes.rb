@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :products
   resources :categories
+  resources :orders, only: [:index, :show]
   #resources :categories, only: [:show]
   resource :cart, only: [:show] do
     put 'add/:product_id', to: 'carts#add', as: :add_to

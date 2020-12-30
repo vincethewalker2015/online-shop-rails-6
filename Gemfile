@@ -28,9 +28,11 @@ gem 'gon', '~> 6.4'
 # gem 'image_processing', '~> 1.2'
 # USE Devise for User Authentication
 gem 'devise', '~> 4.5'
-#Use Carrier Wave for Image Uplaod
+# Use Carrier Wave for Image Uplaod
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+# Use Braintree for payments
+gem 'braintree', '~> 3.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
@@ -57,6 +59,7 @@ group :development, :test do
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
+  gem 'dotenv-rails'
 end
 
 group :production do 

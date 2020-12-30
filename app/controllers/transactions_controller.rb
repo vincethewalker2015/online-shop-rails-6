@@ -7,7 +7,7 @@ class TransactionsController < ApplicationController
     gon.client_token = generate_client_token
   end
 
-  def create # AMEND FOR STRIPE USE!!!!!!!!!!!
+  def create 
     @result = Braintree::Transaction.sale(
       amount: current_user.cart_total_price,
       payment_method_nonce: params[:payment_method_nonce])
@@ -31,7 +31,7 @@ class TransactionsController < ApplicationController
       end
     end
 
-    def generate_client_token # AMEND FOR STRIPE USE!!!!!!!!!!!
+    def generate_client_token 
       Braintree::ClientToken.generate
     end
 

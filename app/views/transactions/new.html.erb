@@ -5,9 +5,27 @@
 <div class="card p-5">
   <%= form_tag transactions_path do %>
     <p>Please enter your payment details:</p>
-    #dropin
-    <%= submit_tag "Pay £ #{current_user.cart_total_price}" %>
+    
+    <div id="dropin-container"></div>
+    <script src="https://js.braintreegateway.com/web/dropin/1.25.0/js/dropin.js"></script>
+     <!--<button id="submit-button" class="button button--small button--green">Purchase £<%= " #{current_user.cart_total_price}" %></button>--> 
+    <%= submit_tag "Purchase £ #{current_user.cart_total_price.to_i}", id: "submit-button", class: "button button--small button--green" %>
   <% end %>
   <br />
   <br />
 </div>
+
+<script>
+  var button = document.querySelector('#submit-button');
+
+  braintree.dropin.create({
+    authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+    selector: '#dropin-container'
+  }, function (err, instance) {
+    button.addEventListener('click', function () {
+      instance.requestPaymentMethod(function (err, payload) {
+        // Submit payload.nonce to your server
+      });
+    })
+  });
+</script>
