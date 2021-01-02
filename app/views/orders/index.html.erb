@@ -2,18 +2,25 @@
   <div class="col-12 card">
     <table class="table">
       <thead>
-        <th>User</th>
-        <th>Product</th>
-        <th>Quantity</th>
-        <th>Order Time</th>
+        <tr>
+          <th scope="col">User</th>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Order Time</th>
+        </tr>
       </thead>
       <tbody>
-        <% @orders.each do |order| %>
-          <td><%= order.user.email %></td>
+        
+          <% @orders.each do |order| %>
+          <tr scope="row">
+          <td><%= order.user.name %></td>
           <td><%= order.product.name %></td>
           <td><%= order.quantity %></td>
           <td><%= order.created_at.getlocal.strftime("%e-%m-%y %H:%M") %></td>
+          <td><%= link_to "View Order", order_path(order), class: "btn btn-success btn-sm" %></td>
+           </tr>
         <% end %>
+       
       </tbody>
     </table>
   </div>

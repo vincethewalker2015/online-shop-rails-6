@@ -1,13 +1,8 @@
-<div class="jumbotron">
-  <h1>Checkout</h1>
-</div>
-
-<div class="card p-5">
-  <%= form_tag transactions_path do %>
+<div class="col-md-8 offset-2 mt-4">
+  <h2 class="mbs">Thank you for your order</h2>
+  <%= form_tag transactions_path do%>
     <p>Please enter your payment details:</p>
-    #dropin
-    <%= submit_tag "Pay £ #{current_user.cart_total_price}" %>
-  <% end %>
-  <br />
-  <br />
+    <div id="dropin"></div>
+    <%=submit_tag "Pay £ #{current_user.cart_total_price.to_i}", class: "btn btn-primary" %>
+  <%end%>
 </div>

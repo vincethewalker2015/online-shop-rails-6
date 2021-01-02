@@ -7,6 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+require("packs/braintree")
 
 import "bootstrap"
 // Uncomment to copy all static images under ../images to the output folder and reference
@@ -19,4 +20,9 @@ import "bootstrap"
 
 $(document).on('turbolinks:load', function() {
   $('.alert').delay(1000).fadeOut(4000);
+  braintree.setup(gon.client_token, 'dropin', { container: 'dropin'});
   });
+
+
+
+  
