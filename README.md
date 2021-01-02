@@ -1,24 +1,17 @@
-# README
+# To Install
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## This Application is built using Rails 5.2 using Postgres and redis
 
-Things you may want to cover:
+### To Install, you need the following:
+* Postgres Set needs to be set up locally
+``` 
+  Once installed to start postgres server run "pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
-* Ruby version
+  To Stop run "pg_ctl -D /usr/local/var/postgres stop -s -m fast" 
+  ```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Redis needs to be installed
+  ```
+  To Start Redis run "redis-server"
+  To Stop CTRL + C
+  ```
