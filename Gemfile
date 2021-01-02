@@ -31,6 +31,8 @@ gem 'devise', '~> 4.5'
 # Use Carrier Wave for Image Uplaod
 gem 'carrierwave', '~> 2.0'
 gem 'mini_magick'
+# Use Figaro to keep some features Secret
+gem 'figaro', '~> 1.2'
 # Use Braintree for payments
 gem 'braintree', '~> 3.1'
 # Reduces boot times through caching; required in config/boot.rb

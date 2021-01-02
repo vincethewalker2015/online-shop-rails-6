@@ -1,0 +1,20 @@
+<h1 class="jumbotron text-center">
+  <p><%= @order.product.name.capitalize %></p>
+</h1>
+
+<div class="card">
+  <div class="card-body">
+    <p>Ordered by: <%= @order.user.name %></p>
+    <p>Order <%= @order.product.name %></p>
+    <p>Order Quantity <%= @order.quantity %></p>
+    
+  </div>
+  <div class="card-footer">
+    <% if current_user.admin? %>
+      <%= link_to 'All Orders', orders_path, class: "btn btn-primary" %>
+      <%= link_to 'Edit Order', "#", class: "btn btn-warning" %>
+      <%= link_to 'Delete Order', "#",  class: "btn btn-danger" %>
+    <% end %>
+    
+  </div>
+</div>
