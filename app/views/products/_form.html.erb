@@ -17,10 +17,15 @@
       </div>
 
       <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :picture, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
           <%= f.label :category, class:"form-label float-left" %>
           <%= f.collection_select(:category_ids, Category.all, :id, :name,
           {prompt: "Select a Category below (It can be empty)"}, {multiple: true, class: "custom-select form-decoration"}) %>
-        </div>
+      </div>
 
       <div class="form-group">
         <%= f.submit class: "btn btn-primary"%>
@@ -29,3 +34,12 @@
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+   $('#product_picture').bind('change', function() {
+     var size_in_megabytes = this.files[0].size/1024/1024;
+     if (size_in_megabytes > 5) {
+       alert('Maximum file size is 5MB. Please choose a smaller file.');
+     }
+   });
+ </script>

@@ -5,5 +5,12 @@ class Product < ApplicationRecord
 
   has_many :orders
   has_many :users, through: :orders
- 
+  mount_uploader :picture, PictureUploader
+
+  # Validates the size of uploaded picture
+  def picture_size 
+    if picture.size > 5.megabytes
+      errors.add(:picture, "Should be less than 5MB")
+    end
+  end
 end
