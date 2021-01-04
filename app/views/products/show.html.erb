@@ -1,11 +1,12 @@
 <h1 class="jumbotron text-center">
-  <%= @product.name.capitalize %> 
+  <p><%= @product.name.capitalize %></p>
+  <p><%= image_tag @product.picture.url if @product.picture? %> </p>
 </h1>
 
 <div class="card">
   <div class="card-body">
     <p> <%= @product.description %></p>
-    <p>£ <%= @product.price %>
+    <p>£ <%= @product.price %></p>
     <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn btn-success btn-sm ml-3" %></p>
     <% if @product.categories.any? %>
       <p class="">Categories: <%=  render @product.categories %></p>

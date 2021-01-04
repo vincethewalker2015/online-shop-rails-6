@@ -4,12 +4,6 @@
   text-align: center
 }
 
-/* Navbar */
-.nav-but {
-  color: #fff !important;
-  border: 2px solid #fff;
-}
-
 .nav-user {
   color: #fff;
 }
@@ -18,3 +12,43 @@
   font-size: 18px;
   border: 2px solid #fff;
 }
+
+.user-link{
+  font-size: 18px;
+  color: #fff;
+}
+
+.user-link, a:hover {
+  font-size: 18px !important;
+  border: 2px solid #fff;
+}
+
+.card-title {
+  img {
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 5px;
+  }
+}
+
+.card-body {
+  img {
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 5px;
+  }
+}
+
+.jumbotron {
+  img {
+    border: 1px solid black;
+    padding: 2px;
+    border-radius: 5px;
+  }
+}
+
+.product-title {
+  font-weight: bold;
+}
+
+

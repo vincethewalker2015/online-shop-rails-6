@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-   <h1 class="">Products</h1>
+   <h1 class="">In Store</h1>
    <% if current_user.admin? %>
       <%= link_to "Create new Product", new_product_path, class: "btn btn-success" %>
       <%= link_to "Create new Category", new_category_path, class: "btn btn-success ml-1" %>
@@ -14,7 +14,8 @@
          <div class="card ml-3">
             <div class="card-body">
                <div class="card-title">
-                  <p> <%= product.name %> </p>
+                  <p class="product-title"> <%= product.name %> </p>
+                  <p><%= image_tag product.picture.url (:thumb) if product.picture?  %></p>
                </div>
                
                <div class="card-text">
@@ -22,7 +23,7 @@
                </div>
 
                <div class="card-footer">
-                  <%= link_to 'View Product', product_path(product), class: "btn btn-primary" %>
+                  <%= link_to 'View Product', product_path(product), class: "btn btn-primary btn-sm" %>
                </div>
             </div>
          </div>
