@@ -15,6 +15,10 @@
   To Start Redis run "redis-server"
   To Stop CTRL + C
   ```
+* To Run Server
+  ```
+  rails server
+  ```
 
 * To Run Webpack server
   ```
