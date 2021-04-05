@@ -1,6 +1,6 @@
 # To Install
 
-## This Application is built using Rails 5.2 using Postgres and redis
+## This Application is built using Rails 6.1 using Postgres and redis
 
 ### To Install, you need the following:
 * Postgres Set needs to be set up locally
@@ -15,3 +15,9 @@
   To Start Redis run "redis-server"
   To Stop CTRL + C
   ```
+
+* To Run Webpack server
+  ```
+   ./bin/webpack-dev-server
+   To Stop CTRL + C
+   ```
