@@ -54,6 +54,29 @@ class ProductsController < ApplicationController
     redirect_to products_path
   end
 
+  def search
+    if params[:product].present?
+      @products = params[:product].present?
+      @products = Product.search(params[:product])
+      if @products && @products.count > 0
+        respond_to do |format|
+        format.js { render partial: 'shared/searchresult' }
+      end
+      else
+        respond_to do |format|
+          flash.now[:unsucessful] = "Item not found"
+          format.js { render partial: 'shared/searchresult' }
+          end
+        end
+      else
+        respond_to do |format|
+        flash.now[:unsucessful] = "Please enter a Product name or description to search"
+        format.js { render partial: 'shared/searchresult' }
+      end
+    end
+  end
+
+
   private
 
     def product_params

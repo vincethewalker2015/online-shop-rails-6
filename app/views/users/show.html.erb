@@ -1,0 +1,32 @@
+<% if @user.profile %>
+  <div class ="jumbotron google-font mt-4">
+    <h3 class="text-center"><%= @user.profile.first_name %> <%= @user.profile.last_name %></h3>
+    <h3 class="text-center"><%= @user.profile.email %></h3>
+    <h3 class="text-center">Phone: <%= @user.profile.phone %></h3>
+</div>
+
+  <div class="row google-font">
+    <div class="col-md-8 offset-2 mobile-view">
+      <div class="card card-body">
+          <h2>Deliver to: </h2>
+          <h4><%= @user.profile.first_name %> <%= @user.profile.last_name %></h4>
+          <h4><%= @user.profile.street_address %></h4>
+          <h4><%= @user.profile.city %></h4>
+          <h4><%= @user.profile.postcode %></h4>
+          <h4><%= @user.profile.country %></h4><br /><br />
+        <div class="text-center">
+          <% if current_user && current_user.admin? %>
+            <%= link_to "Edit User Details", edit_user_registration_path(@user), class: "btn btn-warning mr-1 mt-1" %>
+            <%= link_to "All Users", users_path, class: "btn btn-success mr-1 mt-1" %>
+            <%= link_to "All Customers", profiles_path, class: "btn btn-success mr-1 mt-1" %>  
+          <% end %>
+          <%= link_to "Change your Delivery Address ?", edit_user_profile_path(@user), class: "btn button-maroon btn-lg mr-1 mt-1" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <h2 class="text-center mt-4">You currently do not have a delivery address on record.. <br/>
+    <%= link_to "Create your delivery address", new_user_profile_path(current_user), class: "btn btn-dark google-font mt-4 btn-lg" %>
+  </h2>
+<% end %>

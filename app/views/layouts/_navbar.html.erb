@@ -1,60 +1,75 @@
-<nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-between">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="navbar-collapse collapse dual-nav w-100 ">
-  <ul class="navbar-nav">
-    <li class="nav-item">
+<nav class="navbar navbar-expand-lg navbar-dark bg-maroon">
+    <%# <a class="navbar-brand" href="#">Navbar</a> %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <%# <h4 class="mobile-title-object" style="color: white;">My Wines</h4> %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
       <% if current_user %>
-        <%= link_to 'View all categories', categories_path, class: "badge badge-dark nav-cart nav-but" %>
-        <%= link_to 'In Cart (' + "#{current_user.cart_count}" + ')', cart_path , class: "badge badge-dark nav-cart ml-3"%> 
+        <li class="nav-item dropdown mt-1">
+        <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= link_to current_user.name, "#", class: "nav-text text-decoration-none google-font mobile-only" %> <%= "(Admin)" if current_user.admin?  %>
+        </span>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "Add a Delivery address", new_user_profile_path(current_user), class: "nav-link  google-font drop-object mb-2" unless current_user.profile %>
+            <%= link_to (current_user.name),  user_path(current_user), class: "nav-link  google-font drop-object mb-2" if current_user.profile %>
+            <%= link_to "View all Categories", categories_path, class: "nav-link google-font drop-object mb-2" %> 
+            <%= link_to "Change Delivery Details", edit_user_profile_path(current_user), class: "nav-link  google-font drop-object mb-2" if current_user.profile %>
+            <%= link_to "Change Account Details", edit_user_registration_path(current_user), class: "nav-link google-font  drop-object mb-2" %>
+            <%#= link_to "Create A New User", new_user_registration_path, class: "nav-link google-font  drop-object mb-2" if current_user.admin?  %>
+            <%#= link_to "Close your Account", "#", class: "nav-link google-font drop-object mb-2" %>
+            <% if current_user.orders.count > 0 %>
+              <%= link_to "Orders", user_orders_path(current_user), class: "nav-link google-font drop-object mb-2" %>
+            <% end %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "nav-link google-font mobile-only" %>
+          </div>
+          <% else %>
+          <li><%= link_to "Create an account / Log in", user_session_path, class: "nav-text  text-decoration-none google-font" %></li>
+        </li>
       <% end %>
-    </li>
-
-    <li class="nav-item">
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-* dropdown-toggle" data-toggle="dropdown">
-        </button> 
-        <div class="dropdown-menu">
-          <%#= link_to 'Articles', articles_path, class: "dropdown-item mx-auto" %> 
-          <%#= link_to "Categories", categories_path, class: "dropdown-item mx-auto" %>
-          <%# if logged_in? && current_user.admin?%>
-          <%#= link_to "Create Article", new_article_path, class: "dropdown-item mx-auto" %>
-          <%#= link_to "Create a Category", new_category_path, class: "dropdown-item mx-auto"%>
-          <%# end %>
-        </div>
-      </div>
-    </li>
-
-    <%# if logged_in? %>
-    <li class="nav-item">
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-* dropdown-toggle" data-toggle="dropdown">
-          <%#= link_to current_user.username %> <%#= "(Admin)" if current_user.admin? %>
-        </button>
-        <div class="dropdown-menu">
-          <%#= link_to "Show User", user_path(current_user), class: "dropdown-item mx-auto" %>
-          <%#= link_to "Edit User", edit_user_path(current_user), class: "dropdown-item mx-auto" %>
-        </div>
-      </div>
-    </li>
-    <%# end %>
-
-  </ul>
-  </div>
-  <a href="/" class="navbar-brand mx-auto d-block text-center w-100 logo-name">Online Shop</a>
-  <div class="navbar-collapse collapse dual-nav w-100">
-    <ul class="nav navbar-nav ml-auto">
-      <%# if current_user %>
-
+        <li class="nav-item">
+          <% if current_user.try(:admin?) %>
+          <div class="dropdown mt-1">
+              <span class="nav-link dropdown-toggle" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= link_to "My Wines", root_path, class: "nav-text text-decoration-none google-font text-center center-mark mobile-only" %>
+              </span>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <%= link_to "Product Range", products_path, class: "nav-link google-font drop-object mb-2" %>
+                <%= link_to "Categories", categories_path, class: "nav-link google-font drop-object mb-2" %>
+                <%= link_to "View Orders", orders_path, class: "nav-link google-font  drop-object mb-2" %>
+                <%= link_to "Sales", sales_index_path(current_user), class: "nav-link google-font drop-object mb-2" %>
+                <%= link_to "Customers", profiles_path, class: "nav-link google-font drop-object mb-2" %>
+                <%= link_to "Users", users_path, class: "nav-link google-font drop-object" %>
+              </div>
+            </div>
+            </button>
+          <% end %>
+        </li>
+      </ul>
+    <!--<form class="form-inline my-2 my-lg-0">
+        <%#= render 'shared/searchform' %>
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success button-maroon my-2 my-sm-0" type="submit">Search</button>
+      </form>  -->
+      <ul class="navbar-nav">
+      <%# if !current_user %>
+        <li class="nav-item mt-2"><%= link_to "Home", root_path, class: "nav-text  text-decoration-none google-font" %></li>
+        <li class="nav-item mt-2 ml-2">
+        <% if current_user %>
+          <i class="fa fa-shopping-cart fa-lg" style="color: #fff;"><%= link_to ' (' + "#{current_user.cart_count}" + ')', cart_path , class: "nav-text text-decoration-none google-font" %> </i>
+        <% end %>
+      </li>
       <%# end %>
-      <% if current_user %> 
-      <li class="nav-user mr-2 "> <%= link_to current_user.name, edit_user_registration_path(current_user), class: "badge badge-dark nav-cart" %> <%= "(Admin)" if current_user.admin? %></li>
-      <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "badge badge-dark nav-cart nav-but" %></li>
-      <% else %>
-      <li><%= link_to "Log in", user_session_path, class: "badge badge-dark nav-cart nav-but" %></li>
-      <% end %>
+      <li class="nav-item mt-1">
+        <%= render 'shared/searchform' %>
+        <%# if current_user %>
+          <%#= link_to 'View all categories', categories_path, class: "badge badge-maroon google-font nav-cart mobile-only" %>
+        <%# else %>
+          <%#= link_to "Create your account", new_user_registration_path, data: { turbolinks: false }, class: "badge badge-maroon google-font nav-cart " %>
+        <%# end %>
+      </li>
     </ul>
   </div>
 </nav>
-

@@ -1,20 +1,35 @@
-<h1 class="jumbotron text-center">
-   Categories
+<h1 class="jumbotron text-center google-font">
+   Categories 
+   <% if current_user && current_user.admin %>
+      <%= link_to "Create new category", new_category_path, class: "btn btn-success btn-sm" %>
+   <% end %>
+   
 </h1>
 
 <div class="row">
      <%#= render 'shared/product', collection: @products %>
-     <% @categories.each do |cat| %>
-         <div class="card">
-            <div class="card-body">
-               <div class="card-title">
-                  <p> <%= cat.name %> </p>
-               </div>
-
-               <div class="card-footer">
-                  <%= link_to 'View category', category_path(cat), class: "btn btn-primary" %>
+     <% unless @categories.count < 1 %>
+         <% @categories.each do |cat| %>
+            <div class="card choose ml-3 mb-3">
+               <div class="card-body">
+                  <div class="card-title">
+                     <h4 class="text-center google-font"><strong><%= cat.name %></strong> </h4>
+                     <p class="text-center"><%= image_tag cat.picture.url (:thumb) if cat.picture?  %></p>
+                  </div>
+                  <div class="card-body">
+                     <%= link_to 'View category', category_path(cat), class: "btn button-maroon google-font btn-sm mt-1" %>
+                     <% if current_user && current_user.admin %>
+                        <%= link_to 'Edit category', edit_category_path(cat), class: "btn btn-warning google-font btn-sm mt-1" %>
+                        <%= link_to 'Delete category', category_path(cat), method: :delete, class: "btn btn-danger google-font btn-sm mt-1" %>
+                     <% end %>
+                  </div>
                </div>
             </div>
-         </div>
+      <% end %>
+     <% else %>
+      <div class="card-body">
+         <h4 class="text-center google-font">There are no Categories Listed</h4>
+      </div>
      <% end %>
+     
   </div>

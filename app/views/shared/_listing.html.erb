@@ -1,0 +1,24 @@
+<% unless @products.count < 1 %>
+  <% @products.each do |product| %>
+    <div class="card ml-3 google-font choose mb-3">
+      <div class="card-body" >
+          <div class="card-title">
+            <p class="product-title"> <%= product.name %> </p>
+            <p><%= image_tag product.picture.url (:thumb) if product.picture?  %></p>
+          </div>
+          
+          <div class="card-text">
+            <p><small>£</small> <%= product.price %></p>
+          </div>
+
+          <div class="">
+            <%= link_to 'View', product_path(product), class: "btn button-maroon btn-sm" %>
+          </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="card-body google-font">
+    <h4 class="text-center">There are no Products listed</h4>
+  </div>
+<% end %>

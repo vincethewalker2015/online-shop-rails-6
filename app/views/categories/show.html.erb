@@ -1,8 +1,10 @@
-<h1 class="jumbotron text-center mt-2">
+<h1 class="jumbotron text-center google-font mt-2">
   <p>Category: <%= @category.name %></p>
-  
-  <%= link_to 'View all Products', products_path, class: "btn btn-primary" %>
-
+  <%= link_to 'All Products', products_path, class: "btn button-maroon " %>
+  <%= link_to 'All Categories', categories_path, class: "btn button-maroon " %>
 </h1>
-<h3 class="text-center">In this category:</h3>
-<%= render "categories/listing", obj: @category.products%>
+
+<div class="row">
+  <%= render "categories/listing", obj: @category.products%>
+</div>
+
