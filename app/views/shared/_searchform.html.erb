@@ -1,0 +1,12 @@
+<%= form_tag search_product_path, remote: true, method: :get do %>
+  <div class="position-relative form-inline my-2 my-lg-0">
+    <div class="col-sm-10 no-right-padding">
+      <%= text_field_tag :product, params[:product], placeholder: " &#x1F50D;".html_safe, autofocus: true, style: "FontAwesome", class: "form-control search-tablet search-phone nav-link text-body" %>
+    </div>
+    <!-- <div class="">
+      <%#= button_tag type: :submit, class: "btn button-maroon button-tablet-search button-phone-search" do %>
+      <i class="fa fa-search "></i>
+      <%# end %>
+    </div> -->
+  </div>
+<% end %>

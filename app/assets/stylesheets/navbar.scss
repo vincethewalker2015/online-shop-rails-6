@@ -1,0 +1,54 @@
+
+.dropdown-menu {
+  background: #FBFAF5;
+  margin-right: 10px !important;
+  margin-top: 10px;
+  .badge {
+    margin-left: 8px;
+  }
+}
+
+.li, .nav-item{
+  list-style-type: none !important;
+}
+
+nav {
+  margin-bottom: 10px;
+}
+.nav-user {
+  color: #fff;
+}
+
+.bg-maroon {
+  background: #680000;
+}
+
+.badge-maroon, a:hover{
+  background: #680000;
+  color: white;
+  
+}
+
+.nav-cart {
+  font-size: 18px;
+  border: 2px solid #fff;
+}
+
+.nav-item, .dropdown, .show {
+  background: #680000;
+}
+
+.drop-object:hover {
+  background: #fff;
+  color: #680000 !important;
+}
+.nav-text {
+  color: #fff;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+
+
+

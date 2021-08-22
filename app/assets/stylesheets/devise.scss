@@ -6,6 +6,13 @@
   text-align: left;
 }
 
+.alert-unsucessful {
+  background-color: #000;
+  border-color: #fff;
+  color: #fff;
+  text-align: center;
+}
+
 .alert-alert {
   background-color: #f2dede;
   border-color: #eed3d7;
@@ -25,4 +32,10 @@
   border-color: #d6e9c6;
   color: #468847;
   text-align: left;
+}
+
+.card-heading {
+  background: #680000;
+  color: #fff;
+  border-radius: 3px;
 }

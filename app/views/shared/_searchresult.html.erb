@@ -1,0 +1,22 @@
+<div class="results-block">
+  <%= render 'layouts/flash' %>
+</div>
+<% if @products %>
+  <!-- <div class="card card-header results-block"> -->
+  <table class="col-md-10">
+    <tbody>
+      <% @products.each do |product| %>
+        <!-- <tr class="card card-header results-block mb-1 todo-description">
+          <td class="name-text"><strong>Name: </strong> <%#= product.name %></td>
+        </tr> -->
+        <tr class="card card-body results-block todo-description mb-2">
+          <td class="mt-1">
+            <strong class="ml-2 mobile-hidden">Product: </strong> <%= product.name %>
+            <%= image_tag (product.picture.url (:thumb) if product.picture?), class: "ml-2" %>
+            <%= link_to "View", product_path(product),class: "btn button-maroon search-mobile btn-sm ml-4" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

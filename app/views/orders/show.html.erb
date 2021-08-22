@@ -1,19 +1,39 @@
-<h1 class="jumbotron text-center">
-  <p><%= @order.product.name.capitalize %></p>
+<h1 class="jumbotron text-center google-font mt-3">
+  <p>Order for: <%= @order.product.name.capitalize %></p>
 </h1>
 
-<div class="card">
+<div class="card google-font">
   <div class="card-body">
-    <p>Ordered by: <%= @order.user.name %></p>
-    <p>Order <%= @order.product.name %></p>
-    <p>Order Quantity <%= @order.quantity %></p>
+    <p>Date Ordered: <strong><%= @order.created_at.to_date %></strong></p>
+    <p>Ordered by: <strong><%= @order.user.profile.first_name %> <%= @order.user.profile.last_name %></strong></p>
+    <p>Customer Telephone: <strong><%= @order.user.profile.phone %></strong></p>
+    <p>Order: <strong><%= @order.product.name %></strong></p>
+    <p>Order Quantity: <strong><%= @order.quantity %></strong></p>
+    <p>Deliver to:
+      <table class="table">
+        <!-- <thead> -->
+          <tr>
+            <th scope="col">Street Addess</th>
+            <th scope="col">City</th>
+            <th scope="col">Post Code</th>
+            <th scope="col">Country</th>
+          </tr>
+        <!-- </thead> -->
+        <tr scope="row">
+          <td><%= @order.user.profile.street_address %></td>
+          <td><%= @order.user.profile.city %></td>
+          <td><%= @order.user.profile.postcode %></td>
+          <td><%= @order.user.profile.country %></td>
+        </tr>
+      </table>
+    </p>
     
   </div>
   <div class="card-footer">
     <% if current_user.admin? %>
       <%= link_to 'All Orders', orders_path, class: "btn btn-primary" %>
-      <%= link_to 'Edit Order', "#", class: "btn btn-warning" %>
-      <%= link_to 'Delete Order', "#",  class: "btn btn-danger" %>
+      <%= link_to 'Edit Order (Under development)', "#", class: "btn btn-warning" %>
+      <%= link_to 'Delete Order', order_path(@order), method: :delete,  class: "btn btn-danger" %>
     <% end %>
     
   </div>

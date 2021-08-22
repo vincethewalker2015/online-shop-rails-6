@@ -1,0 +1,55 @@
+<div class="row google-font">
+  <div class="col-md-8 offset-2 mobile-view">
+  
+    <%= form_with(model: @profile, local: true) do |f| %>
+      <div class="form-group">
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name, id: :customer_first_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name, id: :customer_last_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, id: :custommer_email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :phone %>
+        <%= f.telephone_field :phone, id: :customer_phone, class: 'form-control' %>
+      </div>
+
+      <h4 class="card card-header">Address you would like your order to be delivered:</h4><br />
+
+        <div class="form-group">
+          <%= f.label :street_address %>
+          <%= f.text_field :street_address, id: :street, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :city %>
+          <%= f.text_field :city, id: :city, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :postcode %>
+          <%= f.text_field :postcode, id: :postcode, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :country %>
+          <%= f.text_field :country, id: :country, class: 'form-control' %>
+        </div>
+      <%# end %>
+
+      <div class="form-group mb-4">
+        <%= f.submit "Update Delivery Address", class: "btn button-maroon mt-1"%>
+        <%= link_to "Home Page", root_path, class: "btn button-maroon ml-2 mt-1" %>
+      </div>
+        
+    <% end %>
+  </div>
+</div>

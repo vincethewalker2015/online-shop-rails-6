@@ -7,7 +7,13 @@
       </div>
 
       <div class="form-group">
-        <%= f.submit class: "btn btn-primary"%>
+        <%= f.label :image %>
+        <%= f.file_field :picture, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit class: "btn btn-primary mt-1"%>
+        <%= link_to "All Categories", categories_path, class: "btn btn-success mt-1" %>
       </div>
     <% end %>
   </div>
