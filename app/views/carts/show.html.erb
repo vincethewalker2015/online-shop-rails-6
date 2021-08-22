@@ -1,14 +1,14 @@
-<div class="jumbotron">
-  <h1>Your Shopping Cart</h1>
+<div class="jumbotron google-font">
+  <h1 class="text-center">Your Shopping Cart</h1>
 </div>
 
 <div class="row">
-  <table class="table">
+  <table class="table google-font">
     <thead>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
-      <th>Subtotal</th>
+      <th class="remove-mob">Sub total</th>
     </thead>
     <tbody>
       <% @cart_products_with_qty.each do |array| %>
@@ -16,13 +16,13 @@
         <% qty = array[1] %>
         <tr>
           <td class="align-middle"><%= product.name %></td>
-          <td class="align-middle"><%= product.price.to_i %></td>
+          <td class="align-middle">£ <%= product.price %></td>
           <td class="align-middle"><%= qty %></td>
-          <td class="align-middle"><%= product.price * qty.to_i %></td>
-          <td class="align-middle">
+          <td class="align-middle remove-mob">£ <%= product.price * qty.to_i %></td>
+          <td class="align-middle cart-button">
             <%= link_to '+', add_to_cart_path(product), method: :put, class: "btn btn-primary btn-sm" %>
             <%= link_to '-', remove_one_cart_path(product), method: :put, class: "btn btn-warning btn-sm" %>
-            <%= link_to 'Remove', remove_from_cart_path(product), method: :put, class: "btn btn-danger" %>
+            <%= link_to 'Remove', remove_from_cart_path(product), method: :put, class: "btn button-maroon" %>
           </td>
         </tr>
       <% end %>
@@ -38,7 +38,9 @@
         </tr>
     </tbody>
   </table>
-  <%= link_to "Checkout", new_transaction_path, class: "btn btn-success" unless current_user.get_cart_products_with_qty.blank? %>
-  <%#= link_to "Checkout", new_transaction_path, class: "btn btn-success" unless current_user.get_cart_products_with_qty.blank? %>
-  <%= link_to "Back to Products", new_product_path, class: "btn btn-warning ml-2" %>
+    <div class="links-mobile google-font">
+      <%= link_to "Checkout", new_transaction_path, class: "btn button-maroon" unless current_user.get_cart_products_with_qty.blank? %>
+      <%= link_to "Check Your Delivery address", user_path(current_user), class: "btn button-maroon" %>
+      <%= link_to "Continue Shopping", products_path, class: "btn button-maroon ml-2" %>
+    </div>
 </div>

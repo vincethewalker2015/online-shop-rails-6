@@ -1,11 +1,22 @@
 Rails.application.routes.draw do
  
+  get 'sales/index'
+  get 'sales/show'
   devise_for :users
-  # root 'pages#home'
+  root 'pages#home'
+  # root :to => 'products#index'
+  
 
-  root to: 'products#index'
-
+  resources :users do 
+    resource :profile
+    resources :orders, only: [:index, :show]
+    resources :users, only: [:show, :index]
+  end
+  # resources :users, only: [:show, :index]
+  resources :profiles, only: [:index, :show]
   resources :products
+  get 'my_products', to: 'products#my_products' 
+  get 'search_product', to: 'products#search'
   resources :categories
   resources :orders
   #resources :categories, only: [:show]
@@ -15,6 +26,5 @@ Rails.application.routes.draw do
     put 'remove_one/:product_id', to: 'carts#removeone', as: :remove_one
   end
   resources :transactions, only: [:new, :create]
-  
   
 end

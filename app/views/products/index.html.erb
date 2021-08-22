@@ -1,33 +1,16 @@
-<div class="jumbotron text-center">
-   <h1 class="">In Store</h1>
-   <% if current_user.admin? %>
-      <%= link_to "Create new Product", new_product_path, class: "btn btn-success" %>
-      <%= link_to "Create new Category", new_category_path, class: "btn btn-success ml-1" %>
-      <%= link_to "View Orders", orders_path, class: "btn btn-success ml-1" %>
+<div class="jumbotron google-font text-center">
+   <h1 class="">Products List</h1>
+   <% if current_user && current_user.admin? %>
+      <%= link_to "Create new Product", new_product_path, class: "btn button-maroon but1-mob" %>
+      <%= link_to "Categories", categories_path, class: "btn button-maroon but1-mob" %>
+      <%= link_to "Create new Category", new_category_path, class: "btn button-maroon ml-1" %>
    <% end %>
-   
 </div>
-
+   <!-- Search Results -->
+   <div id="search-results">
+   </div>
+   <!-- Displays Product Listing -->
   <div class="row">
-     <%#= render 'shared/product', collection: @products %>
-     <% @products.each do |product| %>
-         <div class="card ml-3">
-            <div class="card-body">
-               <div class="card-title">
-                  <p class="product-title"> <%= product.name %> </p>
-                  <p><%= image_tag product.picture.url (:thumb) if product.picture?  %></p>
-               </div>
-               
-               <div class="card-text">
-                  <p><small>GBP</small> <%= product.price %></p>
-               </div>
-
-               <div class="card-footer">
-                  <%= link_to 'View Product', product_path(product), class: "btn btn-primary btn-sm" %>
-               </div>
-            </div>
-         </div>
-     <% end %>
-     
+     <%= render 'shared/listing' %>
   </div>
 

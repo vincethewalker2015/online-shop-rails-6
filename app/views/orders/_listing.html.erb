@@ -1,0 +1,9 @@
+<% current_user.orders.each do |order| %>
+  <tr scope="row">
+      <td><%= order.user.profile.first_name %></td>
+      <td><%= order.product.name %></td>
+      <td class="remove-mob"><%= order.quantity %></td>
+      <td><%= order.created_at.getlocal.strftime("%e-%m-%y %H:%M") %></td>
+      <td><%= link_to "View Order", order_path(order), class: "btn btn-success btn-sm" %></td>
+  </tr>
+<% end %>

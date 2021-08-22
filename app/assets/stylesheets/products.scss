@@ -1,3 +1,22 @@
 // Place all the styles related to the Products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.product-title {
+  font-weight: bold;
+}
+ .choose:hover {
+  transform: scale(1.1, 1.1);
+    -ms-transform: scale(1.5, 1.5); /* IE 9 */
+    -webkit-transform: scale(1.1, 1.1);
+}
+
+.show-warning {
+  font-size: 16px;
+  text-align: center !important;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+}

@@ -12,6 +12,8 @@ gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem 'devise-bootstrap-views', '~> 1.0'
+# Use Jquery
+gem 'jquery-rails'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -19,29 +21,26 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.2', '>= 4.2.5'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use GON If you need to send some data to your js files and you don't want to do this with long way 
 gem 'gon', '~> 6.4'
+gem 'hirb', '~> 0.7.3'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # USE Devise for User Authentication
-gem 'devise', '~> 4.5'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'faker'
 # Use Carrier Wave for Image Uplaod
-gem 'carrierwave', '~> 2.0'
-gem 'mini_magick'
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.11'
 # Use Figaro to keep some features Secret
 gem 'figaro', '~> 1.2'
 # Use Braintree for payments
 gem 'braintree', '~> 3.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -55,13 +54,16 @@ end
 group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'dotenv-rails'
+  gem 'pry-byebug'
+  gem 'pry', '~> 0.13.1'
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
   gem 'guard', '~> 2.16', '>= 2.16.2'
   gem 'guard-livereload', '~> 2.5', '>= 2.5.2'
-  gem 'dotenv-rails'
 end
 
 group :production do 

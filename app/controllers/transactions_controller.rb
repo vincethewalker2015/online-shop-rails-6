@@ -1,10 +1,15 @@
 class TransactionsController < ApplicationController
 
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :check_cart!
 
   def new
-    gon.client_token = generate_client_token
+    if current_user.profile
+      gon.client_token = generate_client_token
+    else
+      flash[:info] = "We need your delivery details to proceed with this transaction"
+      redirect_to new_user_profile_path(current_user)
+    end
   end
 
   def create 
@@ -16,7 +21,7 @@ class TransactionsController < ApplicationController
       flash[:notice] = "Congratulations! We'll try to get you your items as soon as possible!"
       redirect_to root_url
     else
-      flash[:alert] = "Hmm, something went wrong, let's try again!"
+      flash.now[:alert] = "Hmm, something went wrong, let's try again!"
       gon.client_token = generate_client_token
       render :new
     end

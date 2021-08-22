@@ -9,6 +9,7 @@ class CartsController < ApplicationController
 
   def add
     current_user.add_to_cart(params[:product_id])
+    flash[:info] = "Are your Delivery Details Correct?"
     redirect_to cart_path
   end
 

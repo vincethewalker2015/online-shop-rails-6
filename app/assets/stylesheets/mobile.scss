@@ -1,0 +1,247 @@
+// Products Index Page
+
+.but1-mob {
+
+  @media only screen //portrait Iphone 6
+        and (min-device-width : 320px)
+        and (max-device-width : 667px)
+        and (orientation: portrait)  { 
+          margin-bottom: 2px;
+        };
+
+    @media only screen //landscape Iphone 6
+      and (min-device-width : 320px)
+      and (max-device-width : 667px)
+      and (orientation: landscape)  { 
+        
+      };
+
+}
+
+// Products Show Page
+.product-options a{
+
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    margin-bottom: 2px;
+  };
+
+  @media only screen //landscape Iphone 
+      and (min-device-width : 320px)
+      and (max-device-width : 667px)
+      and (orientation: landscape)  { 
+        margin-bottom: 2px;
+      };
+}
+
+
+// THE CART
+
+.cart-button a{
+
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    
+    margin-bottom: 2px;
+  };
+
+  @media only screen //landscape Iphone 
+      and (min-device-width : 320px)
+      and (max-device-width : 667px)
+      and (orientation: landscape)  { 
+        margin-bottom: 2px;
+      };
+}
+// Removes Subtotal column in Carts mobile portrait view
+.remove-mob {
+
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    
+    display: none;
+  };
+}
+
+//Gives the margin from the left in Mobile Portrait view for the bottom links
+.links-mobile a{
+
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    
+    margin-left: 10px;
+  };
+}
+
+// NAVBAR
+
+// Navbar buttons
+
+.badge, .mobile-only .a{
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    
+    margin-top: 2px;
+    margin-bottom: 2px;
+  };
+
+  @media only screen //landscape Iphone 
+      and (min-device-width : 414px)
+      and (max-device-width : 736px)
+      and (orientation: landscape)  {
+        margin-top: 2px; 
+        margin-bottom: 2px;
+      };
+}
+.title-object  {
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)
+  { 
+    display: none;
+  };
+  @media only screen //landscape Iphone 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    display: none !important;
+  };
+}
+
+// Hide create account button in ipad portrait
+
+// Navbar Behaviours with Ipad Pro
+
+.search-tablet, .button-tablet-search {
+  @media only screen 
+  and (min-device-width: 1024px) 
+  and (max-device-width: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    display: none !important;
+  }
+}
+
+//TRANSACTIONS
+
+
+// Removes title in search result mob
+
+.mobile-hidden {
+  @media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    display: none;
+  };
+}
+
+.search-mobile{
+  @media only screen //portrait Iphone 
+  and (min-device-width : 320px)
+  and (max-device-width : 667px)
+  and (orientation: portrait)  { 
+    margin-top: 5px;
+    
+  };
+}
+
+// Align Search Bar and Button In Ipad
+.search-tablet {
+  @media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    position: relative;
+    left: -20px;
+  }
+ }
+
+//  .button-tablet-search {
+//   @media only screen 
+//   and (min-device-width: 768px) 
+//   and (max-device-width: 1024px) 
+//   and (orientation: portrait) 
+//   and (-webkit-min-device-pixel-ratio: 2) {
+//     position: relative;
+//     left: -440px;
+//   }
+//  }
+
+ // Align Search Bar and Button In All Phone sizes
+
+ // Search Bar
+  // Should work with all phone screens
+ .search-phone {
+  @media only screen 
+  and (min-device-width: 280px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+    position: relative;
+    left: -15px;
+  }
+
+  @media only screen 
+  and (min-device-width: 280px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    position: relative;
+    width: 60% !important;
+    left: -15px;
+  }
+ }
+
+ // Search Button
+
+//  .button-phone-search { 
+//   @media only screen //Portrait
+//   and (min-device-width: 280px) 
+//   and (max-device-width: 823px) 
+//   and (-webkit-min-device-pixel-ratio: 2) 
+//   and (orientation: portrait){ 
+//     position: relative;
+//     left: -10px;
+//   }
+
+//   @media only screen //Landscape
+//   and (min-device-width: 280px) 
+//   and (max-device-width: 823px) 
+//   and (-webkit-min-device-pixel-ratio: 2) 
+//   and (orientation: landscape){ 
+//     position: relative;
+//     left: -220px;
+//   }
+//  }
+
+ .mobile-view {
+    @media only screen 
+    and (min-device-width: 280px) 
+    and (max-device-width: 823px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait)  { 
+      margin: auto;
+    }
+
+    @media only screen 
+    and (min-device-width: 280px) 
+    and (max-device-width: 823px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: landscape)  { 
+      margin: auto;
+    }
+ }

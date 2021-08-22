@@ -1,0 +1,28 @@
+<div class="card card-header google-font mt-2">
+  <h1 class="text-center">
+    All Users
+  </h1>
+</div>
+
+<div class="row google-font">
+  <% unless @users.count < 1 %>
+    <% @users.each do |user| %>
+      <div class="card ml-3 mt-2 choose">
+        <div class="card-body" >
+            <div class="card-title ">
+              <h5 class="product-title">Name: <%= user.name %> <%= " (Admin)" if user.admin?%></h5>
+              <p class="product-title">User Name: <%= user.email %></p>
+            </div>
+            <%= link_to "View", user_path(user), class: "btn btn-warning" %> 
+            <% if current_user.admin? && !user.admin? %>
+              <%= link_to "Delete",  user_path(user), method: :delete, data: {confirm: "Are you sure?" }, class: "btn btn-danger" %> 
+            <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card-body google-font">
+      <h4 class="text-center">You Currently have no Customers</h4>
+    </div>
+  <% end %>
+</div>

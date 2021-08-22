@@ -1,0 +1,24 @@
+<h2 class="text-center google-font mt-1">Customer profiles</h2>
+<div class="row google-font">
+  <% unless @profiles.count < 1 %>
+    <% @profiles.each do |profile| %>
+      <div class="card ml-3 mt-2 choose">
+        <div class="card-body" >
+            <div class="card-title ">
+              <p class="product-title"> <%= profile.first_name %> <%= profile.last_name %></p>
+              <p class="product-title"> <%= profile.street_address %></p>
+              <p class="product-title"> <%= profile.city %></p>
+              <p class="product-title"> <%= profile.phone %></p>
+              <p><%#= link_to "View", user_profile_path(current_user.profile), class: "btn btn-primary btn-sm" %></p>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="card-body google-font">
+      <h4 class="text-center">You Currently have no Customers</h4>
+    </div>
+  <% end %>
+
+</div>
+

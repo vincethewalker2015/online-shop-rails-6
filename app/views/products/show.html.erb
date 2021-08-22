@@ -1,23 +1,43 @@
-<h1 class="jumbotron text-center">
-  <p><%= @product.name.capitalize %></p>
-  <p><%= image_tag @product.picture.url if @product.picture? %> </p>
-</h1>
+<div id="search-results"></div>
+<div class="jumbotron google-font text-center mt-3">
+  <h1><%= @product.name.capitalize %></h1>
+  </div>
+  <div class="row google-font">
+    <div class="col">
+    <div class="card card-body ">
+      <p> <%= simple_format @product.description %></p>
+      <h4 class="">£ <%= @product.price %></h4>
+    </div>
+  </div>
+  
+  <div class="col">
+    <div class="card card-body text-center">
+      <p><%= image_tag @product.picture.url if @product.picture? %> </p>
+    </div>
+  </div>
+  </div>
 
-<div class="card">
+
+<div class="card google-font">
   <div class="card-body">
-    <p> <%= @product.description %></p>
-    <p>£ <%= @product.price %></p>
-    <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn btn-success btn-sm ml-3" %></p>
+      <% if current_user %>
+        <%= link_to "Add to cart", add_to_cart_path(@product), method: :put, class: "btn button-maroon btn-sm ml-3" %></p>
+      <% else %>
+        <p class="show-warning">To continue to order please Login or Create your account</p>
+      <% end %>
     <% if @product.categories.any? %>
       <p class="">Categories: <%=  render @product.categories %></p>
     <% end %>
   </div>
-  <div class="card-footer">
-    <%= link_to 'Product List', products_path, class: "btn btn-warning" %>
-    <% if current_user.admin? %>
+  <div class="card-body product-options">
+    <%= link_to 'In Store', root_path, class: "btn button-maroon " %>
+    <%= link_to 'Categories', categories_path, class: "btn button-maroon " %>
+    <% if current_user && current_user.admin? %>
+      <%= link_to 'Products (Admin)', products_path, class: "btn btn-primary" %>
       <%= link_to 'Edit Product', edit_product_path(@product), class: "btn btn-primary" %>
       <%= link_to 'Delete Product', product_path(@product),  method: :delete, class: "btn btn-danger" %>
     <% end %>
     
   </div>
 </div>
+

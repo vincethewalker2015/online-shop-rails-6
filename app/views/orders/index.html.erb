@@ -1,27 +1,52 @@
-<div class="row">
+<div class="row mt-3 google-font">
+  <% if current_user.orders.count > 0 %>
+    <h3 class="mx-auto">My Orders</h3>
+    <div class="col-12 card">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">User</th>
+            <th scope="col">Product</th>
+            <th class="remove-mob" scope="col">Quantity</th>
+            <th scope="col">Order Time</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% unless @orders.count < 1 %>
+            <%= render "orders/listing" %>
+          <% else %>
+            <div class="card-body">
+              <h4 class="text-center">There are no orders to display</h4>
+            </div>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+<% if current_user.admin %>
+  <h3 class="mx-auto">All Orders (Admin use only)</h3> <!-- ADMIN USERS ONLY -->
   <div class="col-12 card">
     <table class="table">
       <thead>
         <tr>
           <th scope="col">User</th>
           <th scope="col">Product</th>
-          <th scope="col">Quantity</th>
+          <th class="remove-mob" scope="col">Quantity</th>
           <th scope="col">Order Time</th>
         </tr>
       </thead>
+
       <tbody>
-        
-          <% @orders.each do |order| %>
-          <tr scope="row">
-          <td><%= order.user.name %></td>
-          <td><%= order.product.name %></td>
-          <td><%= order.quantity %></td>
-          <td><%= order.created_at.getlocal.strftime("%e-%m-%y %H:%M") %></td>
-          <td><%= link_to "View Order", order_path(order), class: "btn btn-success btn-sm" %></td>
-           </tr>
+        <% unless @orders.count < 1 %>
+            <%= render "orders/admin_listing" %>
+        <% else %>
+          <div class="card-body">
+            <h4 class="text-center">There are no orders to display</h4>
+          </div>
         <% end %>
-       
       </tbody>
     </table>
   </div>
+<% end %>
 </div>
