@@ -44,6 +44,7 @@ class ProductsController < ApplicationController
       flash[:notice] = "Product updated!"
       redirect_to products_path
     else
+      puts @product.errors.full_messages
       render :edit
     end
   end
@@ -89,5 +90,10 @@ class ProductsController < ApplicationController
         redirect_to products_path
       end
     end
+
+    # def extension_allowlist
+    #   %w(jpg jpeg gif png)
+    # end
+
 
 end
