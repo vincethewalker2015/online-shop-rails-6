@@ -30,7 +30,8 @@
     "trim-newlines": "^4.0.2",
     "turbolinks": "^5.2.0",
     "url-parse": "^1.5.3",
-    "ws": "^8.3.0"
+    "ws": "^8.3.0",
+    "yarn-upgrade-all": "^0.5.4"
   },
   "version": "0.1.0",
   "devDependencies": {
