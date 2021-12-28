@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index]
   end
   # resources :users, only: [:show, :index]
-  resources :profiles, only: [:index, :show]
+  resources :profiles, only: [:index, :show, :create]
   resources :products
   get 'my_products', to: 'products#my_products' 
   get 'search_product', to: 'products#search'

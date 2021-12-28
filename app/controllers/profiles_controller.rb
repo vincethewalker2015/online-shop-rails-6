@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   end
 
   def create 
+    binding.pry
     # Ensure that we have the user who is filling out form
     @user = User.find( params[:user_id] )
     # Create profile linked to this specific user
@@ -24,7 +25,7 @@ class ProfilesController < ApplicationController
   end
   
   def show
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find(params[:user_id])
     @orders = @profile.orders.all if @profile.orders.all
   end
 

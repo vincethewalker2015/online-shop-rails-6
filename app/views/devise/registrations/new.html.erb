@@ -1,38 +1,41 @@
-<h1 class="text-center mt-2"><%= t('.sign_up') %></h1>
+<div class="row mt-2 google-font">
+  <div class="col-md-6 mx-auto">
+    <div class="card card-body">
+      <h1 class="text-center card-heading"><%= t('.sign_up') %></h1>
 
-<div class="col-md-8 offset-2">
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= bootstrap_devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= bootstrap_devise_error_messages! %>
 
-  <div class="field form-group">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+        <div class="field form-group">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, class: 'form-control', placeholder: "Name of User" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email %>
+          <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control', placeholder: "Enter your e-mail address" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password %>
+          <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control', placeholder: "Create a password" %>
+
+          <% if @minimum_password_length %>
+            <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
+          <% end %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control', placeholder: "Re-enter your password" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit t('.sign_up'), class: 'btn button-maroon' %>
+        </div>
+      <% end %>
+      <p>Already have an account?</p>
+      <%= render 'devise/shared/links' %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, autocomplete: 'email', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, autocomplete: 'current-password', class: 'form-control' %>
-
-    <% if @minimum_password_length %>
-      <small class="form-text text-muted"><%= t('devise.shared.minimum_password_length', count: @minimum_password_length) %></small>
-    <% end %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, autocomplete: 'current-password', class: 'form-control' %>
-  </div>
-
-  <div class="form-group">
-    <%= f.submit t('.sign_up'), class: 'btn btn-primary' %>
-  </div>
-  <% end %>
-
-  <%= render 'devise/shared/links' %>
 </div>
-
