@@ -11,7 +11,6 @@ class ProfilesController < ApplicationController
   end
 
   def create 
-    binding.pry
     # Ensure that we have the user who is filling out form
     @user = User.find( params[:user_id] )
     # Create profile linked to this specific user
