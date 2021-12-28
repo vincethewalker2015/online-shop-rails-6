@@ -9,7 +9,7 @@
     "@rails/webpacker": "5.4.3",
     "ansi-html": "^0.0.7",
     "ansi-regex": "^6.0.1",
-    "bootstrap": "5.1",
+    "bootstrap": "4.5",
     "browserslist": "^4.19.1",
     "color-string": "^1.9.0",
     "dns-packet": "^5.3.1",
