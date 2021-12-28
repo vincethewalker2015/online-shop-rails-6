@@ -1,7 +1,8 @@
 <div class="row google-font">
   <div class="col-md-8 offset-2 mobile-view">
   
-    <%= form_with(model: @profile, local: true) do |f| %>
+    <%#= form_with(model: @profile, local: true) do |f| %>
+    <%= form_with(model: @profile, url: user_profile_path, local: true) do |f| %>
       <div class="form-group">
         <%= f.label :first_name %>
         <%= f.text_field :first_name, id: :customer_first_name, class: 'form-control' %>
