@@ -27,14 +27,19 @@
         </tr>
       <% end %>
       <tr class="font-weight-bold card-footer mt-1">
-          <td colspan="3">
-            <h5>Total</h5>
-          </td>
-          <div >
+         <% if @cart_products_with_qty.present? %>
+            <td colspan="3">
+              <h5>Total</h5>
+            </td>
+          <div>
             <td>
               <h5><span class="mr-1">£</span><%= @cart_total %></h5>
             </td>
+          <% else %>
+            <h4 class="mx-auto">You have no items in the cart</h4>
+          <% end %>
           </div>
+
         </tr>
     </tbody>
   </table>
