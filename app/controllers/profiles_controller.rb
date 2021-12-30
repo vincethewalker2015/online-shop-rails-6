@@ -15,9 +15,14 @@ class ProfilesController < ApplicationController
     @user = User.find( params[:user_id] )
     # Create profile linked to this specific user
     @profile = @user.build_profile( profile_params )
+    @cart_products_with_qty = current_user.get_cart_products_with_qty
     if @profile.save
-      flash[:success] = "Profile updated!"
-      redirect_to cart_path
+      flash[:notice] = "Profile updated!"
+      if @cart_products_with_qty.present? 
+        redirect_to cart_path
+      else 
+        redirect_to user_path( params[:user_id] )
+      end
     else
       render action: :new
     end
@@ -36,8 +41,8 @@ class ProfilesController < ApplicationController
   def update 
     @user = User.find( params[:user_id] )
     @profile = @user.profile
-    if @profile.update_attributes(profile_params)
-        flash[:success] = "Profile Updated!"
+    if @profile.update(profile_params)
+        flash[:notice] = "Profile Updated!"
         redirect_to user_path( params[:user_id] )
     else
       render action: :edit
