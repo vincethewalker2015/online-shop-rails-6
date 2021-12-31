@@ -27,4 +27,6 @@ Rails.application.routes.draw do
   end
   resources :transactions, only: [:new, :create]
   
+  get "*path", to: redirect('/')
 end
+
