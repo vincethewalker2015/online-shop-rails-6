@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
   # before_action :require_admin, only: [:index, :edit, :update, :destroy]
+  before_action :only_one_profile, except: [:edit, :update, :show]
   
   def index 
     @profiles = Profile.all
@@ -68,4 +69,13 @@ class ProfilesController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def only_one_profile 
+    if current_user.profile.present?
+      flash[:alert] = "You already have a profile"
+      redirect_to root_path
+    end
+  end
+
 end
+

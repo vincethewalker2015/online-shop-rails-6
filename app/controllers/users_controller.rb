@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @profile = @user.profile
-    @orderss = @user.orders.all
+    @orders = @user.orders.all
   end
 
   def edit
@@ -56,7 +56,5 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name)
   end
-
-
 
 end
