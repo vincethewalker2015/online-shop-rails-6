@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
   before_action :require_admin, only: [:new, :edit, :update, :destroy]
+  around_action :catch_not_found
+
   def index
     @products = Product.all
   end
@@ -90,6 +92,13 @@ class ProductsController < ApplicationController
         flash[:alert] = "You cannot perform this action"
         redirect_to products_path
       end
+    end
+
+    def catch_not_found
+      yield
+    rescue ActiveRecord::RecordNotFound
+      flash[:alert] = "Item not found"
+      redirect_to root_url
     end
 
     # def extension_allowlist
