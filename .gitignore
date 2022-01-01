@@ -42,3 +42,6 @@ yarn-debug.log*
 
 # Ignore Redis dump
 /dump.rdb
+
+# Ignore local Procfile
+procfile.dev
