@@ -18,14 +18,16 @@ class ProfilesController < ApplicationController
     @profile = @user.build_profile( profile_params )
     @cart_products_with_qty = current_user.get_cart_products_with_qty
     if @profile.save
-      flash[:notice] = "Profile updated!"
+      flash[:notice] = "Delivery address updated!"
       if @cart_products_with_qty.present? 
         redirect_to cart_path
       else 
         redirect_to user_path( params[:user_id] )
       end
     else
-      render action: :new
+      flash.now[:alert] = "#{@profile.errors.full_messages.join('  +  ')}"
+      # redirect_to new_user_profile_path( params[:user_id] )
+      render :new
     end
   end
   
@@ -42,11 +44,14 @@ class ProfilesController < ApplicationController
   def update 
     @user = User.find( params[:user_id] )
     @profile = @user.profile
+    binding.pry
     if @profile.update(profile_params)
-        flash[:notice] = "Profile Updated!"
-        redirect_to user_path( params[:user_id] )
+      flash[:notice] = "Sucessfully Updated"
+      redirect_to user_path( params[:user_id] )
     else
-      render action: :edit
+      # flash[:alert] = "#{@profile.errors.full_messages.pop}"
+      flash[:alert] = "#{@profile.errors.full_messages.join(',  + ')}"
+      redirect_to edit_user_profile_path( params[:user_id] )
    end
   end
 

@@ -14,8 +14,8 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Category added!"
       redirect_to categories_path
     else
-      flash[:notice] = "Category can't be blank!"
-      render 'admin/products/new'
+      flash[:alert] = "#{@category.errors.full_messages.pop}"
+      render 'categories/new'
     end
   end
   
@@ -34,6 +34,7 @@ class CategoriesController < ApplicationController
       flash[:notice] = "Category updated!"
       redirect_to categories_path
     else
+      flash[:alert] = "#{@category.errors.full_messages.pop}"
       render :edit
     end
   end
