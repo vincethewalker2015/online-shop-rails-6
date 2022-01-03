@@ -44,7 +44,6 @@ class ProfilesController < ApplicationController
   def update 
     @user = User.find( params[:user_id] )
     @profile = @user.profile
-    binding.pry
     if @profile.update(profile_params)
       flash[:notice] = "Sucessfully Updated"
       redirect_to user_path( params[:user_id] )
