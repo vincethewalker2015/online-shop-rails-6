@@ -12,7 +12,7 @@
     "bootstrap": "4.5",
     "browserslist": "^4.19.1",
     "color-string": "^1.9.0",
-    "dns-packet": "^5.3.1",
+    "dns-packet": "^5.4.0",
     "elliptic": "^6.5.4",
     "glob-parent": "^6.0.2",
     "hosted-git-info": "^4.0.2",
