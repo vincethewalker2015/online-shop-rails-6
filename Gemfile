@@ -33,7 +33,7 @@ gem 'hirb', '~> 0.7.3'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'faker'
 # Use Carrier Wave for Image Uplaod
-gem 'carrierwave', '~> 2.1'
+gem 'carrierwave', '~> 2.2'
 gem 'mini_magick', '~> 4.11'
 # Use Figaro to keep some features Secret
 gem 'figaro', '~> 1.2'
